@@ -16,11 +16,11 @@ const navLinks = [
 
 function Logo({ light }: { light: boolean }) {
   return (
-    <Link href="/" className="flex items-center gap-2.5 shrink-0">      <span
+    <Link href="/" className="flex items-center gap-2.5 shrink-0">
+      <span
         className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-lg transition-colors duration-300 ${
           light ? 'bg-white text-[#0b0d21]' : 'bg-[#4555fd] text-white'
-        }`
-      }
+        }`}
       >
         T
       </span>
@@ -44,7 +44,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
-      // Hero banner is dark; once past it the navbar sits on white
       const banner = document.getElementById('hero-banner');
       if (banner) {
         const rect = banner.getBoundingClientRect();
@@ -58,7 +57,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
 
-  // Close menu on route change (derived during render, not in an effect)
+  // Close menu on route change
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
@@ -79,22 +78,22 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-[#e6e6e6] py-2 shadow-[0_2px_20px_rgba(11,13,33,0.04)]'
+          ? 'bg-white/95 backdrop-blur-xl border-b border-[#f0f0f0] py-2.5 shadow-[0_1px_12px_rgba(11,13,33,0.06)]'
           : light
-            ? 'bg-[#0b0d21]/40 backdrop-blur-md py-4'
-            : 'bg-transparent py-4'
+            ? 'bg-transparent py-5'
+            : 'bg-transparent py-5'
       }`}
     >
-      <nav className="container-marklab flex items-center justify-between gap-6 min-h-[60px] lg:min-h-[64px]">
+      <nav className="container-marklab flex items-center justify-between gap-8 min-h-[56px]">
         <Logo light={light} />
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-9">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`relative text-[15px] transition-colors duration-300 after:absolute after:left-0 after:-bottom-1.5 after:h-[2px] after:rounded-full after:bg-[#4555fd] after:transition-all after:duration-300 ${
+              className={`relative text-[15px] font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1.5 after:h-[2px] after:rounded-full after:bg-[#4555fd] after:transition-all after:duration-300 ${
                 pathname === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'
               } ${
                 pathname === link.href
@@ -102,7 +101,7 @@ export default function Navbar() {
                     ? 'text-white'
                     : 'text-[#4555fd]'
                   : light
-                    ? 'text-[#dcdde2] hover:text-white'
+                    ? 'text-white/70 hover:text-white'
                     : 'text-[#4e516a] hover:text-[#0b0d21]'
               }`}
             >
@@ -117,7 +116,7 @@ export default function Navbar() {
           </PillButton>
         </div>
 
-        {/* Mobile toggle — color must always contrast the bar behind it */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -147,16 +146,16 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-base transition-colors ${
+                  className={`px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
                     pathname === link.href
                       ? 'text-white bg-white/10'
-                      : 'text-[#dcdde2] hover:text-white hover:bg-white/5'
+                      : 'text-white/70 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="mt-3">
+              <div className="mt-4">
                 <PillButton href="/contact" variant="primary" className="w-full justify-center">
                   Let&apos;s Talk
                 </PillButton>

@@ -13,7 +13,7 @@ const clients = [
 /* Clean monochrome wordmarks — muted by default, strengthen on hover */
 function LogoMark({ name }: { name: string }) {
   return (
-    <span className="text-lg sm:text-xl font-semibold tracking-tight text-[#0b0d21] opacity-40 hover:opacity-80 transition-opacity whitespace-nowrap">
+    <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0b0d21] opacity-25 hover:opacity-70 transition-all duration-300 cursor-default whitespace-nowrap select-none">
       {name}
     </span>
   );
@@ -23,26 +23,25 @@ export default function ClientMarquee() {
   const row = [...clients, ...clients];
 
   return (
-    <section className="py-10 bg-white">
-      {/* Band 1: statement text — its own block with proper spacing below */}
-      <div className="container-marklab">
+    <section className="py-14 sm:py-16 bg-white relative">
+      <div className="container-marklab mb-8">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-[17px] sm:text-[18px] text-[#0b0d21] max-w-2xl mx-auto leading-relaxed"
+          className="text-center text-sm sm:text-[15px] text-[#a2a3b1] uppercase tracking-[0.15em] font-medium"
         >
-          Be part of the 100+ businesses transforming their digital presence.
+          Trusted by businesses building their digital future
         </motion.p>
       </div>
 
-      {/* Band 2: distinct logo banner with its own tinted background and top/bottom borders */}
-      <div className="mt-7 border-y border-[#e6e6e6] bg-[#fafafa]">
-        <div className="marquee-fade py-8 sm:py-9 overflow-hidden">
+      {/* Logo banner */}
+      <div className="border-y border-[#f0f0f0]">
+        <div className="marquee-fade py-10 sm:py-12 overflow-hidden">
           <div className="animate-marquee flex w-max items-center">
             {[0, 1].map((half) => (
-              <div key={half} className="flex items-center gap-12 sm:gap-16 lg:gap-[120px] pr-12 sm:pr-16 lg:pr-[120px]">
+              <div key={half} className="flex items-center gap-16 sm:gap-20 lg:gap-28 pr-16 sm:pr-20 lg:pr-28">
                 {row.map((name, i) => (
                   <LogoMark key={`${half}-${name}-${i}`} name={name} />
                 ))}

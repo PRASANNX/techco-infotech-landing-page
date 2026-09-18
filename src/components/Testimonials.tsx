@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { Serif, Reveal } from './ui';
 
 const testimonials = [
@@ -43,27 +43,26 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="section-pad bg-white">
+    <section id="testimonials" className="section-pad bg-white">
       <div className="container-marklab">
-        <div className="flex items-end justify-between gap-8 mb-10 lg:mb-12">
-          <Reveal>
+        <div className="flex items-end justify-between gap-8 mb-12 lg:mb-14">
+          <Reveal className="max-w-lg">
             <span className="section-label">Testimonials</span>
             <h2 className="h2 mt-5">Kind words from <Serif>clients</Serif> we&apos;ve served</h2>
-            <p className="text-body mt-4">Heartfelt feedback from happy clients.</p>
           </Reveal>
 
           <Reveal delay={0.1} className="hidden md:flex gap-3 shrink-0">
             <button
               onClick={() => scrollBy(-1)}
               aria-label="Previous testimonial"
-              className="w-12 h-12 rounded-full border border-[#e6e6e6] flex items-center justify-center text-[#0b0d21] hover:bg-[#0b0d21] hover:text-white hover:border-[#0b0d21] transition-colors"
+              className="w-12 h-12 rounded-full border border-[#e6e6e6] bg-white flex items-center justify-center text-[#0b0d21] hover:bg-[#0b0d21] hover:text-white hover:border-[#0b0d21] transition-all duration-300"
             >
               <ArrowLeft size={18} />
             </button>
             <button
               onClick={() => scrollBy(1)}
               aria-label="Next testimonial"
-              className="w-12 h-12 rounded-full border border-[#e6e6e6] flex items-center justify-center text-[#0b0d21] hover:bg-[#0b0d21] hover:text-white hover:border-[#0b0d21] transition-colors"
+              className="w-12 h-12 rounded-full border border-[#e6e6e6] bg-white flex items-center justify-center text-[#0b0d21] hover:bg-[#0b0d21] hover:text-white hover:border-[#0b0d21] transition-all duration-300"
             >
               <ArrowRight size={18} />
             </button>
@@ -74,27 +73,31 @@ export default function Testimonials() {
         <Reveal delay={0.1}>
           <div
             ref={trackRef}
-            className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {testimonials.map((t) => (
               <article
                 key={t.company + t.author}
-                className="snap-start shrink-0 w-[85%] sm:w-[420px] card p-8 flex flex-col justify-between min-h-[280px]"
+                className="snap-start shrink-0 w-[85%] sm:w-[420px] bg-white border border-[#e6e6e6] rounded-[20px] p-8 lg:p-9 flex flex-col justify-between min-h-[300px]"
               >
                 <div>
-                  {/* logo + dot separator (template pattern) */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="w-9 h-9 rounded-lg bg-[#edf2ff] text-[#4555fd] flex items-center justify-center font-bold shrink-0">
-                      {t.company[0]}
-                    </span>
-                    <span className="text-lg font-bold text-[#0b0d21]">{t.company}</span>
-                    <span className="w-2 h-2 rounded-full bg-[#4555fd]" />
+                  {/* Company header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <span className="w-10 h-10 rounded-xl bg-[#edf2ff] text-[#4555fd] flex items-center justify-center font-bold shrink-0">
+                        {t.company[0]}
+                      </span>
+                      <span className="text-lg font-bold text-[#0b0d21]">{t.company}</span>
+                    </div>
+                    <Quote size={24} className="text-[#4555fd] opacity-30" />
                   </div>
-                  <p className="text-large text-[#0b0d21]!">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="text-[17px] leading-relaxed text-[#0b0d21]">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-[#e6e6e6]">
+                <div className="mt-8 pt-6 border-t border-[#f0f0f0]">
                   <p className="font-bold text-[#0b0d21]">{t.author}</p>
-                  <p className="text-small mt-0.5">{t.role}</p>
+                  <p className="text-small mt-1 text-[#a2a3b1]">{t.role}</p>
                 </div>
               </article>
             ))}

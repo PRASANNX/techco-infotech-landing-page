@@ -5,7 +5,6 @@ import { useInView } from 'framer-motion';
 import { Reveal } from './ui';
 
 function RollingDigit({ digit, start }: { digit: number; start: boolean }) {
-  // vertical strip of digits 0-9, slot-machine style like the template
   const [pos, setPos] = useState(0);
   const digits = Array.from({ length: 10 }, (_, i) => i);
 
@@ -43,10 +42,14 @@ function Counter({
   start: boolean;
 }) {
   return (
-    <div className="text-center lg:text-left">
+    <div className="text-center flex flex-col items-center">
       <div
-        className="h-display text-[#0b0d21]! flex items-baseline justify-center lg:justify-start"
-        style={{ fontSize: 'clamp(2.75rem, 5vw, 4.5rem)' }}
+        className="flex items-baseline justify-center font-medium text-[#0b0d21]"
+        style={{
+          fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+          lineHeight: 1.1,
+          letterSpacing: '-0.03em',
+        }}
       >
         <span className="counter-mask h-[1em] leading-[1em] flex">
           {value.split('').map((ch, i) => {
@@ -60,7 +63,7 @@ function Counter({
         </span>
         <span className="text-[#4555fd]">{suffix}</span>
       </div>
-      <p className="text-body mt-3">{label}</p>
+      <p className="text-[15px] text-[#4e516a] mt-2 font-medium">{label}</p>
     </div>
   );
 }
@@ -77,11 +80,11 @@ export default function Stats() {
   ];
 
   return (
-    <section ref={ref} className="py-16">
+    <section ref={ref} className="py-16 lg:py-20">
       <div className="container-marklab">
         <Reveal>
-          <div className="bg-[#edf2ff] rounded-[30px] px-6 py-14 lg:py-16">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
+          <div className="bg-[#edf2ff] rounded-[28px] px-8 py-16 lg:py-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
               {stats.map((s) => (
                 <Counter key={s.label} {...s} start={inView} />
               ))}

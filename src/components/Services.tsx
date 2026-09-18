@@ -20,7 +20,7 @@ const services = [
     icon: Megaphone,
     tint: 'alt',
     title: 'Digital Marketing',
-    desc: 'Social media and content marketing designed to amplify your brand’s presence and drive meaningful engagement.',
+    desc: 'Social media and content marketing designed to amplify your brand\u2019s presence and drive meaningful engagement.',
   },
   {
     icon: Cpu,
@@ -38,25 +38,26 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="section-pad bg-[#fafafa]">
+    <section id="services" className="section-pad bg-[#fafafa]">
       <div className="container-marklab">
-        {/* Header row: title left, CTA right (template's banner-wrapper) */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-          <Reveal>
+        {/* Header row */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 lg:mb-16">
+          <Reveal className="max-w-xl">
             <span className="section-label">Smart services</span>
             <h2 className="h2 mt-5">
               Smart Services That Drive <Serif>Real</Serif> Impact.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <a href="/services" className="text-body font-medium text-[#0b0d21] hover:text-[#4555fd] transition-colors whitespace-nowrap">
-              Explore all services →
+            <a href="/services" className="text-[15px] font-medium text-[#4555fd] hover:text-[#3543d9] transition-colors whitespace-nowrap inline-flex items-center gap-1.5 group">
+              Explore all services
+              <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
           </Reveal>
         </div>
 
         {/* 2x2 card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -64,14 +65,14 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55, delay: (i % 2) * 0.08 }}
-              className="card-tint rounded-[20px] p-8 lg:p-10 flex flex-col gap-5 h-full cursor-default"
+              className="card-tint rounded-[20px] p-8 lg:p-10 flex flex-col gap-6 h-full cursor-default group"
             >
-              <span className={`icon-3d ${service.tint} w-12 h-12 shrink-0`}>
-                <service.icon size={24} strokeWidth={1.8} />
+              <span className={`icon-3d ${service.tint} w-14 h-14 shrink-0 transition-transform duration-300 group-hover:scale-110`}>
+                <service.icon size={26} strokeWidth={1.6} />
               </span>
               <div>
                 <h3 className="h4">{service.title}</h3>
-                <p className="text-body mt-3 max-w-md">{service.desc}</p>
+                <p className="text-body mt-3 max-w-md leading-relaxed">{service.desc}</p>
               </div>
             </motion.div>
           ))}
