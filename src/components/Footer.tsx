@@ -10,19 +10,19 @@ const columns = [
     title: 'Main',
     links: [
       { name: 'Home', href: '/' },
-      { name: 'About', href: '/about' },
-      { name: 'Services', href: '/services' },
-      { name: 'Portfolio', href: '/portfolio' },
-      { name: 'Contact', href: '/contact' },
+      { name: 'About', href: '/#about' },
+      { name: 'Services', href: '/#services' },
+      { name: 'Portfolio', href: '/#portfolio' },
+      { name: 'Contact', href: '/#contact' },
     ],
   },
   {
     title: 'Services',
     links: [
-      { name: 'Web Development', href: '/services' },
-      { name: 'App Development', href: '/services' },
-      { name: 'Digital Marketing', href: '/services' },
-      { name: 'AI & Automation', href: '/services' },
+      { name: 'Web Development', href: '/#services' },
+      { name: 'App Development', href: '/#services' },
+      { name: 'Digital Marketing', href: '/#services' },
+      { name: 'AI & Automation', href: '/#services' },
     ],
   },
 ];
@@ -36,14 +36,14 @@ export default function Footer() {
       <div className="container-marklab">
         {/* CTA banner */}
         <Reveal>
-          <div className="hero-banner rounded-[28px] px-6 sm:px-10 py-16 lg:py-24 text-center">
-            <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-6">
+          <div className="hero-banner rounded-[32px] px-8 sm:px-12 py-20 lg:py-28 text-center mt-4">
+            <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-8">
               <span className="section-label on-dark">Start building now</span>
               <h2 className="h2 text-white!">
                 Ready to <Serif>see real</Serif> Results
               </h2>
-              <div className="flex flex-wrap gap-4 justify-center mt-4">
-                <PillButton href="/contact" variant="primary">
+              <div className="flex flex-wrap gap-5 justify-center mt-5">
+                <PillButton href="/#contact" variant="primary">
                   Let&apos;s Talk
                 </PillButton>
                 <a href="tel:+916232551312" className="btn btn-white">

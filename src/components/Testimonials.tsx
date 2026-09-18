@@ -78,26 +78,26 @@ export default function Testimonials() {
             {testimonials.map((t) => (
               <article
                 key={t.company + t.author}
-                className="snap-start shrink-0 w-[85%] sm:w-[420px] bg-white border border-[#e6e6e6] rounded-[20px] p-8 lg:p-9 flex flex-col justify-between min-h-[300px]"
+                className="snap-start shrink-0 w-[85%] sm:w-[460px] bg-white border border-[#e6e6e6] rounded-[24px] p-10 lg:p-12 flex flex-col justify-between min-h-[340px]"
               >
                 <div>
                   {/* Company header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <span className="w-10 h-10 rounded-xl bg-[#edf2ff] text-[#4555fd] flex items-center justify-center font-bold shrink-0">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      <span className="w-12 h-12 rounded-2xl bg-[#edf2ff] text-[#4555fd] flex items-center justify-center font-bold shrink-0 text-lg">
                         {t.company[0]}
                       </span>
-                      <span className="text-lg font-bold text-[#0b0d21]">{t.company}</span>
+                      <span className="text-xl font-bold text-[#0b0d21]">{t.company}</span>
                     </div>
-                    <Quote size={24} className="text-[#4555fd] opacity-30" />
+                    <Quote size={28} className="text-[#4555fd] opacity-30" />
                   </div>
-                  <p className="text-[17px] leading-relaxed text-[#0b0d21]">
+                  <p className="text-[18px] leading-relaxed text-[#0b0d21]">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-[#f0f0f0]">
-                  <p className="font-bold text-[#0b0d21]">{t.author}</p>
-                  <p className="text-small mt-1 text-[#a2a3b1]">{t.role}</p>
+                <div className="mt-10 pt-8 border-t border-[#f0f0f0]">
+                  <p className="font-bold text-lg text-[#0b0d21]">{t.author}</p>
+                  <p className="text-[15px] mt-1.5 text-[#a2a3b1]">{t.role}</p>
                 </div>
               </article>
             ))}

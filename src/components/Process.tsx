@@ -73,7 +73,7 @@ export default function Process() {
 
           {/* Right: detail panel */}
           <Reveal delay={0.1} className="relative">
-            <div className="rounded-[24px] h-full min-h-[360px] bg-[#edf2ff] p-8 lg:p-10 flex flex-col justify-between overflow-hidden relative">
+            <div className="rounded-[28px] h-full min-h-[400px] bg-[#edf2ff] p-10 lg:p-14 flex flex-col justify-between overflow-hidden relative">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -81,14 +81,14 @@ export default function Process() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.35 }}
-                  className="flex flex-col gap-6"
+                  className="flex flex-col gap-8"
                 >
-                  <span className="w-14 h-14 rounded-[16px] bg-[#0b0d21] text-white flex items-center justify-center shrink-0">
-                    <step.icon size={26} strokeWidth={1.8} />
+                  <span className="w-16 h-16 rounded-[20px] bg-[#0b0d21] text-white flex items-center justify-center shrink-0">
+                    <step.icon size={28} strokeWidth={1.8} />
                   </span>
                   <div>
                     <h3 className="h3 text-[#0b0d21]!">{step.title}</h3>
-                    <p className="text-body mt-4 text-[#0b0d21]/70! max-w-md leading-relaxed">{step.desc}</p>
+                    <p className="text-body mt-5 text-[#0b0d21]/75! max-w-md leading-relaxed">{step.desc}</p>
                   </div>
                 </motion.div>
               </AnimatePresence>

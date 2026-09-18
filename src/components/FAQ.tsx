@@ -67,7 +67,7 @@ export default function FAQ() {
 
           {/* Right: answer panel */}
           <Reveal delay={0.1}>
-            <div className="bg-[#fafafa] border border-[#f0f0f0] rounded-[24px] p-8 lg:p-10 min-h-[320px] flex flex-col justify-center">
+            <div className="bg-[#fafafa] border border-[#f0f0f0] rounded-[28px] p-10 lg:p-14 min-h-[360px] flex flex-col justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -76,11 +76,11 @@ export default function FAQ() {
                   exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="w-10 h-10 icon-3d mb-6 shrink-0 inline-flex">
-                    <span className="text-sm font-bold">0{active + 1}</span>
+                  <span className="w-12 h-12 icon-3d mb-8 shrink-0 inline-flex rounded-2xl">
+                    <span className="text-base font-bold">0{active + 1}</span>
                   </span>
                   <h3 className="h4 leading-snug">{faqs[active].q}</h3>
-                  <p className="text-body mt-4 leading-relaxed">{faqs[active].a}</p>
+                  <p className="text-body mt-5 leading-relaxed text-[#4e516a]">{faqs[active].a}</p>
                 </motion.div>
               </AnimatePresence>
             </div>

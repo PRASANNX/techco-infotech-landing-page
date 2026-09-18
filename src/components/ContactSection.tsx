@@ -28,12 +28,12 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="section-pad bg-[#fafafa]">
-      <div className="container-marklab grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 items-start">
+      <div className="container-marklab grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-start">
         {/* Form card */}
         <Reveal>
-          <div className="card rounded-[24px] p-8 lg:p-12 shadow-sm bg-white">
+          <div className="card rounded-[28px] p-10 lg:p-14 shadow-sm bg-white">
             <h2 className="h3">Send us a message</h2>
-            <p className="text-body mt-3 mb-10 leading-relaxed text-[#4e516a]">
+            <p className="text-body mt-4 mb-12 leading-relaxed text-[#4e516a]">
               Fill out the form and we&apos;ll get back to you within 24 hours.
             </p>
 
@@ -43,16 +43,16 @@ export default function ContactSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-16"
               >
-                <span className="w-16 h-16 rounded-full bg-[#edf2ff] text-[#4555fd] flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle2 size={30} />
+                <span className="w-20 h-20 rounded-full bg-[#edf2ff] text-[#4555fd] flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle2 size={36} />
                 </span>
                 <h3 className="h4">Thank you! Your submission has been received!</h3>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-7">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
                   <div>
-                    <label className="block text-sm font-medium text-[#0b0d21] mb-2.5">
+                    <label className="block text-[15px] font-medium text-[#0b0d21] mb-3">
                       Full Name *
                     </label>
                     <input
@@ -65,7 +65,7 @@ export default function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#0b0d21] mb-2.5">
+                    <label className="block text-[15px] font-medium text-[#0b0d21] mb-3">
                       Email address *
                     </label>
                     <input
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#0b0d21] mb-2.5">
+                  <label className="block text-[15px] font-medium text-[#0b0d21] mb-3">
                     Phone Number
                   </label>
                   <input
@@ -93,7 +93,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#0b0d21] mb-2.5">
+                  <label className="block text-[15px] font-medium text-[#0b0d21] mb-3">
                     Notes *
                   </label>
                   <textarea
@@ -106,13 +106,13 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-full justify-center mt-8 !py-4 shadow-md hover:shadow-lg transition-all">
-                  <span className="text-[16px]">Send Inquiry</span>
+                <button type="submit" className="btn btn-primary w-full justify-center mt-10 !py-4 shadow-md hover:shadow-lg transition-all rounded-[20px]">
+                  <span className="text-[17px]">Send Inquiry</span>
                   <span className="btn-arrows" aria-hidden>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M7 17L17 7M9 7h8v8" />
                     </svg>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M7 17L17 7M9 7h8v8" />
                     </svg>
                   </span>
@@ -123,7 +123,7 @@ export default function ContactSection() {
         </Reveal>
 
         {/* Info cards */}
-        <Reveal delay={0.1} className="space-y-5">
+        <Reveal delay={0.1} className="space-y-6">
           {[
             {
               icon: MapPin,
