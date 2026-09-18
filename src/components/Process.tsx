@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ClipboardList, PhoneCall, Map, Rocket } from 'lucide-react';
+import { ClipboardList, PhoneCall, Map, Rocket } from 'lucide-react';
 import { Serif, Reveal } from './ui';
 
 const steps = [
@@ -41,15 +41,6 @@ export default function Process() {
       <div className="container-marklab">
         <Reveal className="text-center max-w-2xl mx-auto">
           {/* 4.9 rated badge (template detail) */}
-          <div className="inline-flex items-center gap-2 bg-[#edf2ff] rounded-full px-4 py-2 mb-6">
-            <span className="flex text-[#4555fd]">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
-              ))}
-            </span>
-            <span className="text-small font-medium text-[#0b0d21]">4.9 Rated agency</span>
-          </div>
-
           <span className="section-label">How we work</span>
           <h2 className="h2 mt-5">
             Digital Growth in <Serif>4 Simple</Serif> Steps

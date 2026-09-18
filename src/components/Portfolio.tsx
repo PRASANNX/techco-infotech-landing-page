@@ -32,7 +32,9 @@ const projects = [
   },
 ];
 
-export default function Portfolio() {
+export default function Portfolio({ limit }: { limit?: number }) {
+  const visible = limit ? projects.slice(0, limit) : projects;
+
   return (
     <section className="section-pad bg-[#fafafa]">
       <div className="container-marklab">
@@ -58,7 +60,7 @@ export default function Portfolio() {
 
           {/* Project cards */}
           <div className="flex flex-col gap-6 lg:gap-8">
-            {projects.map((project, i) => (
+            {visible.map((project, i) => (
               <motion.a
                 key={project.title}
                 href="/contact"
@@ -69,7 +71,7 @@ export default function Portfolio() {
                 className="group block"
               >
                 <div
-                  className={`relative rounded-[24px] overflow-hidden bg-gradient-to-br ${project.gradient} h-[240px] sm:h-[280px] lg:h-[340px]`}
+                  className={`relative rounded-[24px] overflow-hidden bg-gradient-to-br ${project.gradient} h-[200px] sm:h-[240px] lg:h-[260px]`}
                 >
                   {/* overlay (template's project-overlay) */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

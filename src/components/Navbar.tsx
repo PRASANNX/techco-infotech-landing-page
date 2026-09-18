@@ -113,7 +113,7 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           <PillButton href="/contact" variant={light ? 'white' : 'primary'} size="sm">
-            Send Inquiry
+            Let&apos;s Talk
           </PillButton>
         </div>
 
@@ -158,7 +158,7 @@ export default function Navbar() {
               ))}
               <div className="mt-3">
                 <PillButton href="/contact" variant="primary" className="w-full justify-center">
-                  Send Inquiry
+                  Let&apos;s Talk
                 </PillButton>
               </div>
             </div>

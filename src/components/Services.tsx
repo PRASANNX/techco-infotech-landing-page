@@ -45,7 +45,7 @@ export default function Services() {
           <Reveal>
             <span className="section-label">Smart services</span>
             <h2 className="h2 mt-5">
-              Smart Services That Drive a <Serif>Real</Serif> Impact.
+              Smart Services That Drive <Serif>Real</Serif> Impact.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -64,7 +64,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55, delay: (i % 2) * 0.08 }}
-              className="card-tint rounded-[20px] p-8 lg:p-10 flex flex-col gap-8 lg:gap-10 h-full cursor-default"
+              className="card-tint rounded-[20px] p-8 lg:p-10 flex flex-col gap-5 h-full cursor-default"
             >
               <span className={`icon-3d ${service.tint} w-12 h-12 shrink-0`}>
                 <service.icon size={24} strokeWidth={1.8} />

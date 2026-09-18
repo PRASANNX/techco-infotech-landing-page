@@ -67,7 +67,7 @@ export default function FAQ() {
 
           {/* Right: answer panel */}
           <Reveal delay={0.1}>
-            <div className="card rounded-[24px] p-8 lg:p-10 h-full min-h-[300px] flex flex-col justify-center">
+            <div className="card rounded-[24px] p-8 lg:p-10 h-full min-h-[240px] flex flex-col justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}

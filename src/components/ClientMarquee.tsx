@@ -23,7 +23,7 @@ export default function ClientMarquee() {
   const row = [...clients, ...clients];
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-10 bg-white">
       {/* Band 1: statement text — its own block with proper spacing below */}
       <div className="container-marklab">
         <motion.p
@@ -38,7 +38,7 @@ export default function ClientMarquee() {
       </div>
 
       {/* Band 2: distinct logo banner with its own tinted background and top/bottom borders */}
-      <div className="mt-10 sm:mt-12 border-y border-[#e6e6e6] bg-[#fafafa]">
+      <div className="mt-7 border-y border-[#e6e6e6] bg-[#fafafa]">
         <div className="marquee-fade py-8 sm:py-9 overflow-hidden">
           <div className="animate-marquee flex w-max items-center">
             {[0, 1].map((half) => (

@@ -13,8 +13,8 @@ export default function AboutSection() {
           <Reveal className="relative mb-10 lg:mb-0">
             <div className="rounded-[24px] overflow-hidden bg-[#edf2ff] aspect-[4/3] dot-texture relative">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-40 h-40 icon-3d items-center justify-center rotate-6 rounded-full">
-                  <TrendingUp size={72} strokeWidth={1.5} />
+                <div className="w-28 h-28 icon-3d items-center justify-center rotate-6 rounded-full">
+                  <TrendingUp size={48} strokeWidth={1.5} />
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-7 right-4 lg:-right-6 bg-white rounded-[20px] shadow-[0_20px_50px_rgba(11,13,33,0.12)] px-6 py-5 flex items-center gap-4"
+              className="absolute bottom-4 right-4 bg-white rounded-[20px] shadow-[0_20px_50px_rgba(11,13,33,0.12)] px-6 py-5 flex items-center gap-4"
             >
               <span className="w-11 h-11 icon-3d rounded-full items-center justify-center shrink-0">
                 <ArrowUpRight size={20} />
@@ -61,9 +61,6 @@ export default function AboutSection() {
               <div className="flex flex-wrap gap-4 mt-9">
                 <PillButton href="/about" variant="primary">
                   More About Us
-                </PillButton>
-                <PillButton href="/services" variant="secondary">
-                  Our Services
                 </PillButton>
               </div>
             </Reveal>

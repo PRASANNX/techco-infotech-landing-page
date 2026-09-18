@@ -38,7 +38,7 @@ body {
   color: var(--ink-400);
   font-family: var(--font-display), "TASA Orbiter Deck", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
-  line-height: 130%;
+  line-height: 160%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -58,7 +58,7 @@ body {
 
 /* H1 — display, medium, tight tracking (per Marklab spec) */
 .h-display {
-  font-size: clamp(3rem, 8vw, 6.75rem); /* up to 108px */
+  font-size: clamp(2.75rem, 6.5vw, 5rem); /* up to 80px */
   font-weight: 500;
   line-height: 105%;
   letter-spacing: -0.05em;

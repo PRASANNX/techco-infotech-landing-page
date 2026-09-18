@@ -18,7 +18,7 @@ export default function Home() {
       <AboutSection />
       <Stats />
       <Process />
-      <Portfolio />
+      <Portfolio limit={3} />
       <TechStack />
       <Testimonials />
       <FAQ />

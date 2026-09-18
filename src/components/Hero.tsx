@@ -8,7 +8,7 @@ export default function Hero() {
     <section id="hero-banner" className="hero-banner">
       {/* Curved line decoration bottom-right (template's line-icon) */}
       <svg
-        className="absolute bottom-0 right-0 w-[420px] max-w-full opacity-25 pointer-events-none"
+        className="absolute bottom-0 right-0 w-[340px] max-w-full opacity-25 pointer-events-none"
         viewBox="0 0 520 260"
         fill="none"
         aria-hidden
@@ -27,7 +27,7 @@ export default function Hero() {
       </svg>
 
       <div className="container-marklab relative z-10">
-        <div className="banner-wrap flex flex-col items-center justify-center max-w-4xl mx-auto text-center px-4 pt-44 pb-36 sm:pt-52 sm:pb-40 lg:pt-60 lg:pb-48">
+        <div className="banner-wrap flex flex-col items-center justify-center max-w-4xl mx-auto text-center px-4 pt-40 pb-28 sm:pt-48 sm:pb-32 lg:pt-52 lg:pb-36">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,8 @@ export default function Hero() {
             className="h-display h-display-tight text-white!"
           >
             Digital that <Serif>moves</Serif>
-            <br className="hidden sm:block" /> the Needle
+            <br className="hidden sm:block" />
+            <span className="whitespace-nowrap">the Needle</span>
           </motion.h1>
 
           <motion.p
@@ -57,7 +58,7 @@ export default function Hero() {
             <PillButton href="/contact" variant="primary">
               Let&apos;s Talk
             </PillButton>
-            <PillButton href="/portfolio" variant="secondary" dark>
+            <PillButton href="/contact" variant="secondary" dark>
               Book a Call
             </PillButton>
           </motion.div>

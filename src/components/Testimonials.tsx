@@ -48,9 +48,7 @@ export default function Testimonials() {
         <div className="flex items-end justify-between gap-8 mb-10 lg:mb-12">
           <Reveal>
             <span className="section-label">Testimonials</span>
-            <h2 className="h2 mt-5">
-Kind words from <Serif>clients</Serif> we've served
-            </h2>
+            <h2 className="h2 mt-5">Kind words from <Serif>clients</Serif> we&apos;ve served</h2>
             <p className="text-body mt-4">Heartfelt feedback from happy clients.</p>
           </Reveal>
 

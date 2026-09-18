@@ -77,10 +77,10 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-6">
+    <section ref={ref} className="py-16">
       <div className="container-marklab">
         <Reveal>
-          <div className="bg-[#edf2ff] rounded-[30px] px-6 py-14 lg:py-20">
+          <div className="bg-[#edf2ff] rounded-[30px] px-6 py-14 lg:py-16">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
               {stats.map((s) => (
                 <Counter key={s.label} {...s} start={inView} />
