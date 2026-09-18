@@ -4,32 +4,23 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PillButton } from './ui';
 
 const navLinks = [
-  { name: 'Home', href: '/' },
+  { name: 'Pages', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Service', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Work', href: '/portfolio' },
+  { name: 'Pricing', href: '/contact' },
 ];
 
-function Logo({ light }: { light: boolean }) {
+function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 shrink-0">
-      <span
-        className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-lg transition-colors duration-300 ${
-          light ? 'bg-white text-[#0b0d21]' : 'bg-[#4555fd] text-white'
-        }`}
-      >
-        T
+    <Link href="/" className="flex items-center gap-2 shrink-0">
+      <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#c86bff] to-[#6be0ff] flex items-center justify-center text-white text-xs font-bold leading-none shadow-[0_0_10px_rgba(200,107,255,0.5)]">
+        +
       </span>
-      <span
-        className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-          light ? 'text-white' : 'text-[#0b0d21]'
-        }`}
-      >
-        Techco<span className={light ? 'text-[#9fb6ff]' : 'text-[#4555fd]'}> Infotech</span>
+      <span className="text-[17px] font-bold tracking-tight text-white">
+        Marklab
       </span>
     </Link>
   );
@@ -38,19 +29,11 @@ function Logo({ light }: { light: boolean }) {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [overDark, setOverDark] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-      const banner = document.getElementById('hero-banner');
-      if (banner) {
-        const rect = banner.getBoundingClientRect();
-        setOverDark(rect.bottom > 80);
-      } else {
-        setOverDark(window.scrollY <= 60);
-      }
+      setScrolled(window.scrollY > 20);
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -72,48 +55,60 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const light = !scrolled && overDark;
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-xl border-b border-[#f0f0f0] py-2.5 shadow-[0_1px_12px_rgba(11,13,33,0.06)]'
-          : light
-            ? 'bg-transparent py-5'
-            : 'bg-transparent py-5'
-      }`}
-    >
-      <nav className="container-marklab flex items-center justify-between gap-8 min-h-[56px]">
-        <Logo light={light} />
+    <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
+      <nav 
+        className={`flex items-center justify-between gap-6 transition-all duration-500 rounded-full px-2 py-2 max-w-4xl w-full ${
+          scrolled 
+            ? 'bg-[#10122b]/80 backdrop-blur-xl shadow-2xl border border-white/10' 
+            : 'bg-[#1a1e4a]/50 backdrop-blur-md border border-white/5'
+        }`}
+      >
+        <div className="pl-4">
+          <Logo />
+        </div>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-9">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`relative text-[15px] font-medium transition-colors duration-300 after:absolute after:left-0 after:-bottom-1.5 after:h-[2px] after:rounded-full after:bg-[#4555fd] after:transition-all after:duration-300 ${
-                pathname === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'
-              } ${
-                pathname === link.href
-                  ? light
-                    ? 'text-white'
-                    : 'text-[#4555fd]'
-                  : light
-                    ? 'text-white/70 hover:text-white'
-                    : 'text-[#4e516a] hover:text-[#0b0d21]'
+              className={`text-[13px] font-medium transition-colors duration-200 flex items-center gap-1 ${
+                pathname === link.href ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
             >
               {link.name}
+              {link.name === 'Pages' && (
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              )}
             </Link>
           ))}
         </div>
 
-        <div className="hidden lg:block">
-          <PillButton href="/contact" variant={light ? 'white' : 'primary'} size="sm">
-            Let&apos;s Talk
-          </PillButton>
+        <div className="hidden lg:flex items-center gap-4">
+          {/* Cart Icon (decorative for the reference style) */}
+          <button className="text-white/70 hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+          </button>
+          
+          <Link 
+            href="/contact" 
+            className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-[13px] font-medium transition-colors"
+          >
+            Let&apos;s Contact
+            <span className="w-5 h-5 rounded-full bg-white text-[#0b0d21] flex items-center justify-center">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </span>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -121,12 +116,10 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
-          className={`lg:hidden w-10 h-10 rounded-full flex flex-col items-center justify-center gap-1.5 transition-colors duration-300 ${
-            isOpen || light ? 'text-white' : 'text-[#0b0d21]'
-          } ${isOpen ? 'bg-white/10' : ''}`}
+          className="lg:hidden w-10 h-10 rounded-full flex flex-col items-center justify-center gap-1.5 text-white bg-white/10"
         >
-          <span className={`block w-6 h-[2px] rounded-full bg-current transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
-          <span className={`block w-6 h-[2px] rounded-full bg-current transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-[4px] translate-x-0' : ''}`} />
+          <span className={`block w-5 h-[2px] rounded-full bg-current transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
+          <span className={`block w-5 h-[2px] rounded-full bg-current transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-[4px] translate-x-0' : ''}`} />
         </button>
       </nav>
 
@@ -134,31 +127,30 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25 }}
-            className="lg:hidden bg-[#0b0d21] border-t border-white/10 max-h-[calc(100dvh-72px)] overflow-y-auto"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden absolute top-16 left-4 right-4 bg-[#10122b] border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
           >
-            <div className="container-marklab py-6 flex flex-col gap-1">
+            <div className="p-4 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
-                    pathname === link.href
-                      ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                  }`}
+                  className="px-4 py-3 rounded-xl text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="mt-4">
-                <PillButton href="/contact" variant="primary" className="w-full justify-center">
-                  Let&apos;s Talk
-                </PillButton>
+              <div className="mt-2">
+                <Link 
+                  href="/contact" 
+                  className="flex items-center justify-center gap-2 bg-white/10 text-white w-full py-3 rounded-xl text-sm font-medium"
+                >
+                  Let&apos;s Contact
+                </Link>
               </div>
             </div>
           </motion.div>

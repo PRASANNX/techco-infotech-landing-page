@@ -3,181 +3,91 @@
 import { motion } from 'framer-motion';
 import { PillButton, Serif } from './ui';
 
-/* Floating orb for depth */
-function FloatingOrb({
-  size,
-  x,
-  y,
-  delay,
-  color,
-}: {
-  size: number;
-  x: string;
-  y: string;
-  delay: number;
-  color: string;
-}) {
-  return (
-    <motion.div
-      className="absolute rounded-full pointer-events-none"
-      style={{
-        width: size,
-        height: size,
-        left: x,
-        top: y,
-        background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        filter: 'blur(40px)',
-      }}
-      animate={{
-        y: [0, -20, 0, 15, 0],
-        x: [0, 10, -8, 5, 0],
-        opacity: [0.4, 0.7, 0.5, 0.6, 0.4],
-      }}
-      transition={{
-        duration: 8,
-        delay,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
-    />
-  );
-}
-
 export default function Hero() {
   return (
-    <section id="hero-banner" className="hero-banner relative">
-      {/* Animated floating orbs for depth */}
-      <FloatingOrb size={300} x="10%" y="20%" delay={0} color="rgba(69,85,253,0.15)" />
-      <FloatingOrb size={200} x="75%" y="30%" delay={2} color="rgba(118,142,255,0.12)" />
-      <FloatingOrb size={160} x="60%" y="70%" delay={4} color="rgba(159,182,255,0.10)" />
+    <section 
+      id="hero-banner" 
+      className="relative flex items-center justify-center min-h-[100svh] w-full overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse at 50% 50%, rgba(69, 85, 253, 0.4) 0%, transparent 60%),
+          linear-gradient(180deg, #0b0d21 0%, #1a1e4a 40%, #4555fd 75%, #ffffff 100%)
+        `
+      }}
+    >
+      {/* Decorative vertical lines on the right (matching the image reference) */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[20%] h-[60%] flex justify-between opacity-20 pointer-events-none mix-blend-overlay">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="w-[1px] h-full bg-white" />
+        ))}
+      </div>
 
-      {/* Subtle sparkle grid lines */}
+      {/* Subtle sparkle/noise texture */}
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen"
         style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`
         }}
       />
 
-      {/* Curved line decoration bottom-right */}
-      <svg
-        className="absolute bottom-0 right-0 w-[420px] max-w-[40%] opacity-20 pointer-events-none"
-        viewBox="0 0 520 260"
-        fill="none"
-        aria-hidden
-      >
-        <path
-          d="M0 260C120 240 200 180 260 110C320 40 420 0 520 0"
-          stroke="url(#lineGrad)"
-          strokeWidth="1.5"
-        />
-        <defs>
-          <linearGradient id="lineGrad" x1="0" y1="260" x2="520" y2="0">
-            <stop stopColor="#4555fd" stopOpacity="0" />
-            <stop offset="1" stopColor="#9fb6ff" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div className="container-marklab relative z-10">
-        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto text-center px-4 pt-44 pb-32 sm:pt-52 sm:pb-36 lg:pt-56 lg:pb-40">
-          {/* Subtle badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-8"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.08] border border-white/[0.12] backdrop-blur-sm text-white/80 text-sm font-medium tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse" />
-              Software Development & Digital Marketing
-            </span>
-          </motion.div>
-
+      <div className="container-marklab relative z-10 w-full pt-20 pb-10">
+        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto text-center">
+          
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="h-display h-display-tight text-white!"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white!"
+            style={{ 
+              fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', 
+              fontWeight: 500, 
+              lineHeight: 1.05, 
+              letterSpacing: '-0.04em' 
+            }}
           >
-            Digital that <Serif>moves</Serif>
-            <br className="hidden sm:block" />
-            <span className="whitespace-nowrap">the Needle</span>
+            Digital that <br className="hidden sm:block" />
+            <Serif>moves the</Serif> Needle
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="text-large mt-6 text-[#c5c6ce]! max-w-xl leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-lg sm:text-xl mt-6 sm:mt-8 text-white/80! max-w-2xl font-medium tracking-wide"
           >
-            Software development &amp; digital marketing solutions — designed to
-            deliver impact, not just impressions.
+            All project here is designed to deliver impact—not just impressions.
           </motion.p>
 
-          {/* CTA buttons */}
+          {/* CTA Area */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-wrap gap-4 justify-center mt-10"
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="flex flex-col sm:flex-row items-center gap-6 mt-10 sm:mt-12 relative"
           >
-            <PillButton href="/contact" variant="primary">
-              Let&apos;s Talk
+            {/* Hand-drawn arrow SVG pointing to CTA */}
+            <div className="hidden md:block absolute -left-20 top-1/2 -translate-y-1/2 -translate-x-full opacity-60">
+               <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 38C15 25 35 15 58 10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M48 5L58 10L50 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            <PillButton href="/contact" variant="white" className="!px-8 !py-4 shadow-xl">
+              Let&apos;s Contact
             </PillButton>
-            <PillButton href="/contact" variant="secondary" dark>
-              Book a Call
-            </PillButton>
+            
+            <a href="/contact" className="group flex items-center gap-2 text-white font-medium hover:text-white/80 transition-colors">
+              Book a call 
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
           </motion.div>
 
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-14 flex items-center gap-6 text-white/40 text-sm"
-          >
-            <span className="flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#4ade80]">
-                <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              50+ Projects
-            </span>
-            <span className="w-px h-4 bg-white/20" />
-            <span className="flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#4ade80]">
-                <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              30+ Clients
-            </span>
-            <span className="w-px h-4 bg-white/20 hidden sm:block" />
-            <span className="hidden sm:flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#4ade80]">
-                <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              3+ Years
-            </span>
-          </motion.div>
         </div>
-      </div>
-
-      {/* Bottom wave divider for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg
-          viewBox="0 0 1440 60"
-          fill="none"
-          className="w-full h-[40px] sm:h-[60px]"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 60V30C240 10 480 0 720 10C960 20 1200 40 1440 30V60H0Z"
-            fill="white"
-          />
-        </svg>
       </div>
     </section>
   );
