@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="container-marklab">
         {/* CTA banner */}
         <Reveal>
-          <div className="hero-banner rounded-[32px] px-8 sm:px-12 py-20 lg:py-28 text-center mt-4">
+          <div className="hero-banner rounded-[32px] pad-banner text-center mt-4">
             <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-8">
               <span className="section-label on-dark">Start building now</span>
               <h2 className="h2 text-white!">

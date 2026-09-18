@@ -73,7 +73,7 @@ export default function Process() {
 
           {/* Right: detail panel */}
           <Reveal delay={0.1} className="relative">
-            <div className="rounded-[28px] h-full min-h-[400px] bg-[#edf2ff] p-10 lg:p-14 flex flex-col justify-between overflow-hidden relative">
+            <div className="rounded-[28px] h-full min-h-[400px] bg-[#edf2ff] pad-card flex flex-col justify-between overflow-hidden relative">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}

@@ -299,6 +299,26 @@ body {
   transform: translateY(-2px);
 }
 
+.pad-card {
+  padding: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .pad-card {
+    padding: 3.5rem;
+  }
+}
+
+.pad-banner {
+  padding: 4rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .pad-banner {
+    padding: 6rem 3rem;
+  }
+}
+
 /* Hero banner — dark textured (matches template's banner bg webp) */
 .hero-banner {
   position: relative;

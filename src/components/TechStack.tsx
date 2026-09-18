@@ -34,7 +34,7 @@ export default function TechStack() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {groups.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.1} className="h-full">
-              <div className="card p-10 lg:p-12 h-full flex flex-col">
+              <div className="card pad-card h-full flex flex-col">
                 <p className="section-label mb-8">{group.label}</p>
                 <div className="flex flex-wrap gap-4 content-start">
                   {group.items.map((item) => (

@@ -78,7 +78,7 @@ export default function Testimonials() {
             {testimonials.map((t) => (
               <article
                 key={t.company + t.author}
-                className="snap-start shrink-0 w-[85%] sm:w-[460px] bg-white border border-[#e6e6e6] rounded-[24px] p-10 lg:p-12 flex flex-col justify-between min-h-[340px]"
+                className="snap-start shrink-0 w-[85%] sm:w-[460px] bg-white border border-[#e6e6e6] rounded-[24px] pad-card flex flex-col justify-between min-h-[340px]"
               >
                 <div>
                   {/* Company header */}

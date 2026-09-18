@@ -31,7 +31,7 @@ export default function ContactSection() {
       <div className="container-marklab grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-16 items-start">
         {/* Form card */}
         <Reveal>
-          <div className="card rounded-[28px] p-10 lg:p-14 shadow-sm bg-white">
+          <div className="card rounded-[28px] pad-card shadow-sm bg-white">
             <h2 className="h3">Send us a message</h2>
             <p className="text-body mt-4 mb-12 leading-relaxed text-[#4e516a]">
               Fill out the form and we&apos;ll get back to you within 24 hours.
