@@ -1,7 +1,46 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { PillButton, Serif } from './ui';
+import { PillButton } from './ui';
+import { useEffect, useState } from 'react';
+
+const rollingWords = [
+  "Visibility",
+  "Sales",
+  "Value",
+  "Footfall",
+  "Leads",
+  "Growth",
+  "Impact"
+];
+
+function RollingText() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % rollingWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="inline-flex h-[1.1em] overflow-hidden align-bottom ml-3 relative">
+      <motion.span
+        className="flex flex-col text-left"
+        animate={{ y: `-${index * (100 / rollingWords.length)}%` }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        style={{ height: `${rollingWords.length * 100}%` }}
+      >
+        {rollingWords.map((word) => (
+          <span key={word} className="block h-full font-serif italic text-white" style={{ height: `${100 / rollingWords.length}%` }}>
+            {word}.
+          </span>
+        ))}
+      </motion.span>
+    </span>
+  );
+}
 
 export default function Hero() {
   return (
@@ -15,7 +54,7 @@ export default function Hero() {
         `
       }}
     >
-      {/* Decorative vertical lines on the right (matching the image reference) */}
+      {/* Decorative vertical lines on the right */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[20%] h-[60%] flex justify-between opacity-20 pointer-events-none mix-blend-overlay">
         {[...Array(5)].map((_, i) => (
           <div key={i} className="w-[1px] h-full bg-white" />
@@ -31,23 +70,25 @@ export default function Hero() {
       />
 
       <div className="container-marklab relative z-10 w-full pt-20 pb-10">
-        <div className="flex flex-col items-center justify-center max-w-5xl mx-auto text-center">
+        <div className="flex flex-col items-center justify-center max-w-6xl mx-auto text-center">
           
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white!"
+            className="text-white! flex flex-col items-center justify-center"
             style={{ 
-              fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', 
+              fontSize: 'clamp(3rem, 7vw, 6rem)', 
               fontWeight: 500, 
-              lineHeight: 1.05, 
-              letterSpacing: '-0.04em' 
+              lineHeight: 1.1, 
+              letterSpacing: '-0.03em' 
             }}
           >
-            Digital that <br className="hidden sm:block" />
-            <Serif>moves the</Serif> Needle
+            <span className="block mb-2">Marketing that actually</span>
+            <span className="flex items-center justify-center flex-wrap">
+              gives you more <RollingText />
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -55,7 +96,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl mt-6 sm:mt-8 text-white/80! max-w-2xl font-medium tracking-wide"
+            className="text-lg sm:text-2xl mt-8 sm:mt-10 text-white/80! max-w-3xl font-medium tracking-wide"
           >
             All project here is designed to deliver impact—not just impressions.
           </motion.p>
@@ -65,7 +106,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="flex flex-col sm:flex-row items-center gap-6 mt-10 sm:mt-12 relative"
+            className="flex flex-col sm:flex-row items-center gap-6 mt-12 sm:mt-14 relative"
           >
             {/* Hand-drawn arrow SVG pointing to CTA */}
             <div className="hidden md:block absolute -left-20 top-1/2 -translate-y-1/2 -translate-x-full opacity-60">
@@ -75,13 +116,13 @@ export default function Hero() {
               </svg>
             </div>
 
-            <PillButton href="/contact" variant="white" className="!px-8 !py-4 shadow-xl">
+            <PillButton href="/contact" variant="white" className="!px-10 !py-4 shadow-xl text-[16px]">
               Let&apos;s Contact
             </PillButton>
             
-            <a href="/contact" className="group flex items-center gap-2 text-white font-medium hover:text-white/80 transition-colors">
+            <a href="/contact" className="group flex items-center gap-2 text-white font-medium hover:text-white/80 transition-colors text-[16px]">
               Book a call 
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                 <path d="M7 17L17 7M9 7h8v8" />
               </svg>
             </a>
