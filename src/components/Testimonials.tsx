@@ -82,7 +82,7 @@ export default function Testimonials() {
               >
                 <div>
                   {/* Company header */}
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center justify-between mb-10">
                     <div className="flex items-center gap-4">
                       <span className="w-12 h-12 rounded-2xl bg-[#edf2ff] text-[#4555fd] flex items-center justify-center font-bold shrink-0 text-lg">
                         {t.company[0]}
@@ -95,7 +95,7 @@ export default function Testimonials() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
-                <div className="mt-10 pt-8 border-t border-[#f0f0f0]">
+                <div className="mt-12 pt-8 border-t border-[#f0f0f0]">
                   <p className="font-bold text-lg text-[#0b0d21]">{t.author}</p>
                   <p className="text-[15px] mt-1.5 text-[#a2a3b1]">{t.role}</p>
                 </div>

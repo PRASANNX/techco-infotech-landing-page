@@ -47,11 +47,11 @@ export default function AboutSection() {
           <div>
             <Reveal>
               <span className="section-label">Who we are</span>
-              <h2 className="h2 mt-5">
+              <h2 className="h2 mt-6">
                 Building strong digital systems{' '}
                 <Serif>for growth</Serif>
               </h2>
-              <p className="text-body mt-6 max-w-lg leading-relaxed">
+              <p className="text-body mt-7 max-w-lg leading-relaxed">
                 Techco Infotech combines IT solutions, digital marketing, and
                 AI-driven automation to help businesses move beyond an online
                 presence — to real, measurable digital infrastructure.
@@ -60,7 +60,7 @@ export default function AboutSection() {
 
             {/* Highlight checklist */}
             <Reveal delay={0.1}>
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-10 space-y-5">
                 {highlights.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 size={20} className="text-[#4555fd] mt-0.5 shrink-0" />
@@ -71,7 +71,7 @@ export default function AboutSection() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="flex flex-wrap gap-4 mt-12">
+              <div className="flex flex-wrap gap-5 mt-14">
                 <PillButton href="/#contact" variant="primary" className="!px-8 !py-3.5">
                   Get in Touch
                 </PillButton>

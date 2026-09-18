@@ -76,11 +76,11 @@ export default function FAQ() {
                   exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="w-12 h-12 icon-3d mb-8 shrink-0 inline-flex rounded-2xl">
+                  <span className="w-12 h-12 icon-3d mb-10 shrink-0 inline-flex rounded-2xl">
                     <span className="text-base font-bold">0{active + 1}</span>
                   </span>
                   <h3 className="h4 leading-snug">{faqs[active].q}</h3>
-                  <p className="text-body mt-5 leading-relaxed text-[#4e516a]">{faqs[active].a}</p>
+                  <p className="text-body mt-6 leading-relaxed text-[#4e516a]">{faqs[active].a}</p>
                 </motion.div>
               </AnimatePresence>
             </div>

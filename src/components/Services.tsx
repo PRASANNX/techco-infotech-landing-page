@@ -59,14 +59,14 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55, delay: (i % 2) * 0.08 }}
-              className="card-tint rounded-[24px] pad-card flex flex-col gap-8 h-full cursor-default group"
+              className="card-tint rounded-[24px] pad-card flex flex-col gap-10 h-full cursor-default group"
             >
               <span className={`icon-3d ${service.tint} w-16 h-16 shrink-0 transition-transform duration-300 group-hover:scale-110`}>
                 <service.icon size={28} strokeWidth={1.6} />
               </span>
               <div>
                 <h3 className="h4">{service.title}</h3>
-                <p className="text-body mt-4 max-w-md leading-relaxed">{service.desc}</p>
+                <p className="text-body mt-5 max-w-md leading-relaxed">{service.desc}</p>
               </div>
             </motion.div>
           ))}

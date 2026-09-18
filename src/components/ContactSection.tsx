@@ -33,7 +33,7 @@ export default function ContactSection() {
         <Reveal>
           <div className="card rounded-[28px] pad-card shadow-sm bg-white">
             <h2 className="h3">Send us a message</h2>
-            <p className="text-body mt-4 mb-12 leading-relaxed text-[#4e516a]">
+            <p className="text-body mt-5 mb-14 leading-relaxed text-[#4e516a]">
               Fill out the form and we&apos;ll get back to you within 24 hours.
             </p>
 
@@ -49,8 +49,8 @@ export default function ContactSection() {
                 <h3 className="h4">Thank you! Your submission has been received!</h3>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-7">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
                     <label className="block text-[15px] font-medium text-[#0b0d21] mb-3">
                       Full Name *
@@ -106,7 +106,7 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-full justify-center mt-10 !py-4 shadow-md hover:shadow-lg transition-all rounded-[20px]">
+                <button type="submit" className="btn btn-primary w-full justify-center mt-12 !py-4 shadow-md hover:shadow-lg transition-all rounded-[20px]">
                   <span className="text-[17px]">Send Inquiry</span>
                   <span className="btn-arrows" aria-hidden>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
@@ -154,7 +154,7 @@ export default function ContactSection() {
               ),
             },
           ].map((item) => (
-            <div key={item.label} className="card p-7 flex items-start gap-5 bg-white">
+            <div key={item.label} className="card p-8 flex items-start gap-6 bg-white">
               <span className="icon-3d w-14 h-14 shrink-0">
                 <item.icon size={24} strokeWidth={1.8} />
               </span>

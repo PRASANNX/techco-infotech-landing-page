@@ -35,12 +35,12 @@ export default function TechStack() {
           {groups.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.1} className="h-full">
               <div className="card pad-card h-full flex flex-col">
-                <p className="section-label mb-8">{group.label}</p>
+                <p className="section-label mb-10">{group.label}</p>
                 <div className="flex flex-wrap gap-4 content-start">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="px-5 py-3 rounded-full bg-[#f5f5f7] text-[#0b0d21] text-[15px] font-medium hover:bg-[#edf2ff] hover:text-[#4555fd] transition-colors cursor-default"
+                      className="px-5 py-3.5 rounded-full bg-[#f5f5f7] text-[#0b0d21] text-[15px] font-medium hover:bg-[#edf2ff] hover:text-[#4555fd] transition-colors cursor-default"
                     >
                       {item}
                     </span>
