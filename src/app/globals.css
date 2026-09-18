@@ -1,0 +1,433 @@
+@import "tailwindcss";
+
+/* ============ MARKLAB DESIGN TOKENS ============ */
+:root {
+  /* Primary blue scale */
+  --blue-50: #edf2ff;
+  --blue-100: #dde9ff;
+  --blue-200: #c2d4ff;
+  --blue-300: #9fb6ff;
+  --blue-400: #768eff;
+  --blue-500: #4555fd;
+
+  /* Dark scale */
+  --ink-50: #efeff1;
+  --ink-100: #dcdde2;
+  --ink-200: #c5c6ce;
+  --ink-300: #a2a3b1;
+  --ink-400: #4e516a;
+  --ink-500: #0b0d21;
+
+  --white: #ffffff;
+  --border: #e6e6e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px; /* keep anchors clear of fixed navbar */
+}
+
+body {
+  background-color: var(--white);
+  color: var(--ink-400);
+  font-family: var(--font-display), "TASA Orbiter Deck", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ TYPOGRAPHY ============ */
+.font-display {
+  font-family: var(--font-display), -apple-system, sans-serif;
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.05em; /* Instrument Serif runs small next to Space Grotesk */
+  letter-spacing: 0;
+}
+
+/* H1 — display, medium, tight tracking (per Marklab spec) */
+.h-display {
+  font-size: clamp(3rem, 8vw, 6.75rem); /* up to 108px */
+  font-weight: 500;
+  line-height: 105%;
+  letter-spacing: -0.05em;
+  color: var(--ink-500);
+}
+
+/* Hero headline variant — tighter leading so it reads as one cohesive thought */
+.h-display-tight {
+  line-height: 1.02;
+}
+
+.h1 {
+  font-size: clamp(2.5rem, 6vw, 5.375rem); /* up to 86px */
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.04em;
+  color: var(--ink-500);
+}
+
+.h2 {
+  font-size: clamp(2.25rem, 4.5vw, 4rem); /* up to 64px */
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.034em;
+  color: var(--ink-500);
+}
+
+.h3 {
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 500;
+  line-height: 115%;
+  letter-spacing: -0.02em;
+  color: var(--ink-500);
+}
+
+.h4 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.015em;
+  color: var(--ink-500);
+}
+
+.h5 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--ink-500);
+}
+
+.text-large {
+  font-size: 1.25rem;
+  line-height: 130%;
+  letter-spacing: -0.01em;
+  color: var(--ink-400);
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 130%;
+  color: var(--ink-400);
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 130%;
+  color: var(--ink-400);
+}
+
+/* Section label — small uppercase, wide tracking with dot */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-400);
+}
+
+.section-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  flex-shrink: 0;
+}
+
+.section-label.on-dark {
+  color: var(--ink-100);
+}
+
+/* ============ BUTTONS ============ */
+/* Pill buttons with double arrow-up-right (Marklab signature) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 9999px;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, background-color 0.35s, color 0.35s, border-color 0.35s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--blue-500);
+  color: var(--white);
+  border: 1px solid var(--blue-500);
+}
+
+.btn-primary:hover {
+  background: #3543d9;
+  box-shadow: 0 10px 30px rgba(69, 85, 253, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-500);
+  border: 1px solid var(--ink-100);
+}
+
+.btn-secondary:hover {
+  border-color: var(--ink-500);
+  transform: translateY(-2px);
+}
+
+.btn-secondary.on-dark {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary.on-dark:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--ink-500);
+  border: 1px solid var(--white);
+}
+
+.btn-white:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.625rem 1.125rem;
+  font-size: 0.875rem;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Double arrow icon stack inside pill buttons */
+.btn-arrows {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-arrows svg:first-child {
+  margin-right: -9px;
+  opacity: 0.45;
+  transition: margin 0.3s;
+}
+
+.btn:hover .btn-arrows svg:first-child {
+  margin-right: -4px;
+}
+
+/* ============ LAYOUT ============ */
+.container-marklab {
+  width: 100%;
+  max-width: 1410px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-marklab {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-marklab {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+/* ============ CARDS & SURFACES ============ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.card-tint {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(11, 13, 33, 0.04);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.card-tint:hover {
+  border-color: var(--blue-200);
+  box-shadow: 0 16px 40px rgba(11, 13, 33, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Hero banner — dark textured (matches template's banner bg webp) */
+.hero-banner {
+  position: relative;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, rgba(118, 142, 255, 0.22), transparent 60%),
+    linear-gradient(180deg, #10122b 0%, var(--ink-500) 55%, #10122b 100%);
+  overflow: hidden;
+}
+
+/* Subtle grain texture overlay like the template's banner bg */
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Fine dot pattern on light sections (template texture substitute) */
+.dot-texture {
+  background-image: radial-gradient(rgba(11, 13, 33, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ============ MARQUEE ============ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-fade {
+  position: relative;
+}
+
+.marquee-fade::before,
+.marquee-fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-fade::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff, transparent);
+}
+
+.marquee-fade::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff, transparent);
+}
+
+/* ============ ROLLING COUNTERS ============ */
+.counter-mask {
+  overflow: hidden;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-strip {
+  display: inline-flex;
+  flex-direction: column;
+  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============ MISC ============ */
+/* Flat duotone icon chip — subtle tinted surface, no 3D gloss */
+.icon-3d {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  color: var(--blue-500);
+}
+
+.icon-3d.alt {
+  background: #fff3e6;
+  border-color: #ffe4c4;
+  color: #dd7a2e;
+}
+
+.icon-3d.cool {
+  background: #e9f6ff;
+  border-color: #cfe9fc;
+  color: #2e8fd8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--blue-500);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-200);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-300);
+}
