@@ -50,11 +50,6 @@ export default function Portfolio({ limit }: { limit?: number }) {
               value with cutting-edge, data-driven strategies and systems.
             </p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <PillButton href="/portfolio" variant="secondary">
-              All Projects
-            </PillButton>
-          </Reveal>
         </div>
 
         {/* Project cards — full-width stacked */}

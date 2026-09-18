@@ -87,7 +87,7 @@ export default function Hero() {
           >
             <span className="block mb-2">Marketing that actually</span>
             <span className="flex items-center justify-center flex-wrap">
-              gives you more <RollingText />
+              gives you more &nbsp;<RollingText />
             </span>
           </motion.h1>
 
@@ -116,11 +116,11 @@ export default function Hero() {
               </svg>
             </div>
 
-            <PillButton href="/contact" variant="white" className="!px-10 !py-4 shadow-xl text-[16px]">
+            <PillButton href="/#contact" variant="white" className="!px-10 !py-4 shadow-xl text-[16px]">
               Let&apos;s Contact
             </PillButton>
             
-            <a href="/contact" className="group flex items-center gap-2 text-white font-medium hover:text-white/80 transition-colors text-[16px]">
+            <a href="/#contact" className="group flex items-center gap-2 text-white font-medium hover:text-white/80 transition-colors text-[16px]">
               Book a call 
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
                 <path d="M7 17L17 7M9 7h8v8" />

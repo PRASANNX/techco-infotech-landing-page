@@ -8,6 +8,7 @@ import Portfolio from '@/components/Portfolio';
 import TechStack from '@/components/TechStack';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
+import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
       <AboutSection />
       <Stats />
       <Process />
-      <Portfolio limit={3} />
+      <Portfolio />
       <TechStack />
       <Testimonials />
       <FAQ />
+      <ContactSection />
     </>
   );
 }

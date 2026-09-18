@@ -71,9 +71,9 @@ export default function AboutSection() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="flex flex-wrap gap-4 mt-10">
-                <PillButton href="/about" variant="primary">
-                  More About Us
+              <div className="flex flex-wrap gap-4 mt-12">
+                <PillButton href="/#contact" variant="primary" className="!px-8 !py-3.5">
+                  Get in Touch
                 </PillButton>
               </div>
             </Reveal>

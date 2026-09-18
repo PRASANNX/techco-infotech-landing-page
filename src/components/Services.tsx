@@ -48,12 +48,6 @@ export default function Services() {
               Smart Services That Drive <Serif>Real</Serif> Impact.
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
-            <a href="/services" className="text-[15px] font-medium text-[#4555fd] hover:text-[#3543d9] transition-colors whitespace-nowrap inline-flex items-center gap-1.5 group">
-              Explore all services
-              <span className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
-            </a>
-          </Reveal>
         </div>
 
         {/* 2x2 card grid */}

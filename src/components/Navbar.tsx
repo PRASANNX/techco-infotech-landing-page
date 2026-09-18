@@ -7,10 +7,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { name: 'Pages', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Service', href: '/services' },
-  { name: 'Work', href: '/portfolio' },
-  { name: 'Pricing', href: '/contact' },
+  { name: 'About', href: '/#about' },
+  { name: 'Service', href: '/#services' },
+  { name: 'Work', href: '/#portfolio' },
+  { name: 'Pricing', href: '/#contact' },
 ];
 
 function Logo() {
@@ -99,7 +99,7 @@ export default function Navbar() {
           </button>
           
           <Link 
-            href="/contact" 
+            href="/#contact" 
             className="flex items-center gap-2.5 bg-white/15 hover:bg-white/25 text-white px-6 py-3 rounded-full text-[14px] font-medium transition-all"
           >
             Let&apos;s Contact
@@ -146,7 +146,7 @@ export default function Navbar() {
               ))}
               <div className="mt-3">
                 <Link 
-                  href="/contact" 
+                  href="/#contact" 
                   className="flex items-center justify-center gap-2 bg-white/15 text-white w-full py-3.5 rounded-xl text-[15px] font-medium hover:bg-white/20 transition-colors"
                 >
                   Let&apos;s Contact
